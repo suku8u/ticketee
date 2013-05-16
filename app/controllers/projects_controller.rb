@@ -30,11 +30,17 @@ end
 
 def update
   @project = Project.find(params[:id])
-  @project.update_attributes(params[:project])
+  @project.update_attributes(params[:project])  
   flash[:notice] = "Project has been updated."
   redirect_to @project
 end
 
+def destroy
+@project = Project.find(params[:id])
+@project.destroy
+flash[:notice] = "Project has been deleted."
+redirect_to projects_path
+end
 
 end
 
